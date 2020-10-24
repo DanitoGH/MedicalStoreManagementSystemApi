@@ -39,8 +39,4 @@ urlpatterns = [
     path('api/operations-admin-profile/', include('operationsadminprofile.api.urls', 'operations_admin_profile_api')),
 ]
 
-#DEBUG MODE STATIC DIRECTORY
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
