@@ -175,6 +175,7 @@ ALLOWED_HOSTS =  [
     'django-hospital-store-mng-api.herokuapp.com'
 ]
 
+
 # CORS_ALLOWED_ORIGINS = [
 #     'https://hospital-store-management-sys.herokuapp.com',
 #     'https://django-hospital-store-mng-api.herokuapp.com'
