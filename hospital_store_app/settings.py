@@ -167,8 +167,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
-
 
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
