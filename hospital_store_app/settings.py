@@ -172,9 +172,7 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:3000',
-    'http://localhost:3000',
-    'https://hospital-store-management-sys.herokuapp.com',
-    'https://django-hospital-store-mng-api.herokuapp.com',
+    'hospital-store-management-sys.herokuapp.com',
+    'django-hospital-store-mng-api.herokuapp.com',
 ]
 
