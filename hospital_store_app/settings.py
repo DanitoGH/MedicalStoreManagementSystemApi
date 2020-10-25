@@ -29,7 +29,6 @@ SECRET_KEY = '!__nl*s7nd$o0jex=m0o%yf0seqffvi5xa_qtp_++w_d*585e('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -181,7 +180,7 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ALLOWED_HOSTS =  [
-    'hospital-store-management-sys.herokuapp.com',
+    'medical-store-management-sys.herokuapp.com',
     'django-hospital-store-mng-api.herokuapp.com'
 ]
 
