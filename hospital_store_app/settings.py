@@ -185,5 +185,10 @@ ALLOWED_HOSTS =  [
 ]
 
 
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://\w+\.herokuapp\.com$",
+]
+
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
