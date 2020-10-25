@@ -176,7 +176,8 @@ USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
     "https://django-hospital-store-mng-api.herokuapp.com/api/account/login",
-    "https://django-hospital-store-mng-api.herokuapp.com/
+    "https://django-hospital-store-mng-api.herokuapp.com/",
+    "https://django-hospital-store-mng-api.herokuapp.com"
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
