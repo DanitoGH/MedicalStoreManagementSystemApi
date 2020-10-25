@@ -174,6 +174,11 @@ USE_TZ = True
 #     os.path.join(BASE_DIR, 'static'),
 # ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://django-hospital-store-mng-api.herokuapp.com/api/account/login",
+    "https://django-hospital-store-mng-api.herokuapp.com/
+]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
@@ -183,12 +188,6 @@ ALLOWED_HOSTS =  [
     'medical-store-management-sys.herokuapp.com',
     'django-hospital-store-mng-api.herokuapp.com'
 ]
-
-
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://\w+\.herokuapp\.com$",
-]
-
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
