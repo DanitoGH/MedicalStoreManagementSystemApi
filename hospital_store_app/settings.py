@@ -25,11 +25,11 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# The SECRET_KEY will be imported from the .env file in production
+# The SECRET_KEY has been moved to the .env file
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# The DEBUG value will be imported from the .env file in production
+# The DEBUG value has been moved to the .env file
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'storages',
     
     #MY APPS
     'account',
@@ -153,23 +154,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# STATIC_URL = '/static/'
-# MEDIA_URL = '/images/'
-
-# STATIC_TMP = os.path.join(BASE_DIR, 'static')
-#  STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
-
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-# ]
-
-# CORS_ALLOWED_ORIGINS = [
-#     "https://django-hospital-store-mng-api.herokuapp.com/api/account/login",
-#     "https://django-hospital-store-mng-api.herokuapp.com/",
-#     "https://django-hospital-store-mng-api.herokuapp.com"
-# ]
-
 CORS_ORIGIN_ALLOW_ALL = True
 
 STATIC_URL = '/static/'
@@ -189,6 +173,16 @@ ALLOWED_HOSTS =  [
     'medical-store-management-sys.herokuapp.com',
     'django-hospital-store-mng-api.herokuapp.com'
 ]
+
+#AWS S3 BUCKET CONFIG
+# All the sensitive credentials has been moved to the .env file
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+
+AWS_S3_FILE_OVERWRITE = config('AWS_S3_FILE_OVERWRITE', default=False, cast=bool)
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Activate Django-Heroku.
