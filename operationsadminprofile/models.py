@@ -7,7 +7,7 @@ from account.models import Account
 
 
 def upload_location(instance, filename):
-    file_path = 'profile_images/{user_id}/{username}-{filename}'.format(
+    file_path = 'profile_images/{user_id}/{user_id}-{username}'.format(
         user_id=str(instance.user.id), username=str(instance.user.username), filename=filename
     )
     return file_path
