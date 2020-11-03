@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import django_heroku
 import dj_database_url
+from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,12 +25,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!__nl*s7nd$o0jex=m0o%yf0seqffvi5xa_qtp_++w_d*585e('
+# The SECRET_KEY will be imported from the .env file in production
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-
+# The DEBUG value will be imported from the .env file in production
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Application definition
 
@@ -104,17 +105,6 @@ WSGI_APPLICATION = 'hospital_store_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'database name',
-#         'USER': 'database user',
-#         'PASSWORD': 'database password',
-#         'HOST': 'database host',
-#         'PORT': 'database port',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -182,8 +172,16 @@ USE_TZ = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'media'),
+]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -191,6 +189,7 @@ ALLOWED_HOSTS =  [
     'medical-store-management-sys.herokuapp.com',
     'django-hospital-store-mng-api.herokuapp.com'
 ]
+
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
